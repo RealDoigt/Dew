@@ -48,7 +48,6 @@ enum TokenType
     identifier,
     decimalNumber,
     integerNumber,
-    label,
     
     // keywords
     conditionIf,   // if
