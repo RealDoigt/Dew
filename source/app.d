@@ -25,7 +25,7 @@ void main(string[] args)
         Token[] tokens;
         
         for (size_t i = 1; i < args.length; ++i) 
-            tokens ~= args[i].runFile;
+            tokens ~= args[i].tokenizeFile;
     }
     
     else "usage: dew <file(s)>".writeln;
