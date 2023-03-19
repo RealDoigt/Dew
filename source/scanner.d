@@ -27,7 +27,39 @@ class Scanner
 
         keywords =
         [
-            
+            "if":      TokenType.conditionIf,
+            "elif":    TokenType.conditionElif,
+            "else":    TokenType.conditionElse,
+            "case":    TokenType.conditionCase,
+            "when":    TokenType.conditionWhen,
+            "while":   TokenType.loopWhile,
+            "until":   TokenType.loopUntil,
+            "for":     TokenType.loopForEach,
+            "forever": TokenType.loopForEver,
+            "break":   TokenType.loopBreak,
+            "cont":    TokenType.loopContinue,
+            "then":    TokenType.beginEndThen,
+            "do":      TokenType.beginDo,
+            "od":      TokenType.endDo,
+            "int":     TokenType.typeInt,
+            "real":    TokenType.typeReal,
+            "string":  TokenType.typeString,
+            "char":    TokenType.typeChar,
+            "byte":    TokenType.typeByte,
+            "bool":    TokenType.typeBoolean,
+            "bits":    TokenType.typeBits,
+            "void":    TokenType.typeVoid,
+            "short":   TokenType.modifierShort,
+            "long":    TokenType.modifierLong,
+            "ref":     TokenType.modifierRef,
+            "flex":    TokenType.modifierFlex,
+            "struct":  TokenType.complexStruct,
+            "union":   TokenType.complexUnion,
+            "proc":    TokenType.procedure,
+            "func":    TokenType.pureProcedure,
+            "mode":    TokenType.mode,
+            "true":    TokenType.booleanTrue,
+            "false":   TokenType.booleanFalse,
         ];
     }
 
