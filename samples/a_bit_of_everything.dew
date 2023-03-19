@@ -1,0 +1,52 @@
+use std
+
+# procs and funcs with no argument don't need () on declaration
+
+/* 
+    func is for pure functions. They cannot have side effects,
+    cannot do io stuff and will always have the same output
+    for the same input.
+*/
+func real add (real left, real right) then -> left + right
+
+# proc is for the opposite case. In here, anything goes.
+proc void main
+do
+    # bits is essentially 8 booleans in one byte
+    bits flags = true
+    
+    # all declared values are assigned 0 by default
+    short int age
+    
+    until age > 0 then age = read_int()
+    
+    if age <= 12 then echo('*nYou are a child.')
+    elif age < 18 then echo('*nYou are a teen.')
+    elif age >= 65 then echo('*nYou are an elder.')
+    else then echo('*nYou are an adult of working age.')
+    
+    /* 
+        the when keyword is used to change the type of
+        comparison for or in a case. To use it, just
+        type an operator or a boolean function/procedure
+        with two params after the when. The when will select
+        the first match, so the order is important.
+    */
+    case age when <
+    do
+        12,
+            echo('You*'re very young.')
+        16,
+            echo('You*'re young.')
+        20,
+            echo('You*'re still young.')
+        26,
+            echo('You*'re getting older, but don*'t worry because the night is still young.')
+        30,
+            echo('You*'re getting older.')
+        50,
+            echo('You*'re officially old')
+        else
+            echo('You are either considering or enjoying retirement!')
+    od
+od
