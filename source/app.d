@@ -4,25 +4,29 @@ import std.file;
 import scanner;
 import std.string;
 
-void run (string source)
+auto tokenize (string source)
 {
     auto scanner = new Scanner(source);
-    auto tokens = scanner.scanTokens;
-
-    foreach (token; tokens)
-        token.toString.writeln;
+    return scanner.scanTokens;
 }
 
-void runFile(string path)
+auto tokenizeFile(string path)
 {
     scope (failure)
         "the system encountered a problem with the file".writeln;
 
-    path.readText.run;
+    return path.readText.tokenize;
 }
 
 void main(string[] args)
 {
-    if (args.length == 2) args[1].runFile;
+    if (args.length >= 2)
+    {
+        Token[] tokens;
+        
+        for (size_t i = 1; i < args.length; ++i) 
+            tokens ~= args[i].runFile;
+    }
+    
     else "usage: dew <file(s)>".writeln;
 }
