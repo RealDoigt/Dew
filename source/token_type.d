@@ -85,6 +85,7 @@ enum TokenType
     mode,          // mode
     booleanTrue,   // true
     booleanFalse,  // false
+    use,           // use
 
     // others
     endOfFile

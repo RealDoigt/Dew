@@ -60,6 +60,7 @@ class Scanner
             "mode":    TokenType.mode,
             "true":    TokenType.booleanTrue,
             "false":   TokenType.booleanFalse,
+            "use":     TokenType.use
         ];
     }
 
