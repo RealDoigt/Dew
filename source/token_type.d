@@ -58,6 +58,9 @@ enum TokenType
     loopWhile,     // while
     loopUntil,     // until
     loopForEach,   // for
+    loopForEver,   // forever
+    loopBreak,     // break
+    loopContinue,  // cont
     beginEndThen,  // then
     beginDo,       // do
     endDo,         // od     no modifier      short            long
