@@ -27,80 +27,7 @@ class Scanner
 
         keywords =
         [
-            "ref":    TokenType.reference,
-            "static": TokenType.notGlobal,
-            "cst":    TokenType.constant,
-            "use":    TokenType.use,
-            "int":    TokenType.integer,
-            "unt":    TokenType.unsigned,
-            "flt":    TokenType.decimal,
-            "bin":    TokenType.boolean,
-            "var":    TokenType.variant,
-            "arr":    TokenType.variantArray,
-            "map":    TokenType.variantDict,
-            "fun":    TokenType.variantFunct,
-            "str":    TokenType.stringType,
-            "chr":    TokenType.characterType,
-            "big":    TokenType.bigModifier,
-            "smol":   TokenType.smolModifier,
-            "if":     TokenType.ifCond,
-            "elif":   TokenType.elseIf,
-            "un":     TokenType.unless,
-            "elun":   TokenType.elseUnless,
-            "else":   TokenType.elseCond,
-            "switch": TokenType.switchCond,
-            "til":    TokenType.until,
-            "loop":   TokenType.forever,
-            "each":   TokenType.forEach,
-            "for":    TokenType.forLoop,
-            "while":  TokenType.whileLoop,
-            "case":   TokenType.caseCond,
-            "brk":    TokenType.brick,
-            "true":   TokenType.tru,
-            "false":  TokenType.notTru,
-            "in":     TokenType.read,
-            "out":    TokenType.print,
-            "pop":    TokenType.popup,
-            "gui":    TokenType.graphical,
-            "cgi":    TokenType.webServer,
-            "term":   TokenType.terminal,
-            "is":     TokenType.isType,
-            "err":    TokenType.error,
-            "void":   TokenType.voidType,
-            "pop":    TokenType.removeElement,
-            "cd":     TokenType.changeDirectory,
-            "ls":     TokenType.list,
-            "man":    TokenType.manual,
-            "mv":     TokenType.move,
-            "rm":     TokenType.remove,
-            "cp":     TokenType.copy,
-            "mcd":    TokenType.makeChangeDirectory,
-            "mk":     TokenType.createFile,
-            "mkd":    TokenType.createDirectory,
-            "cho":    TokenType.changeOwner,
-            "chg":    TokenType.changeGroup,
-            "chm":    TokenType.changeRights,
-            "ed":     TokenType.edit,
-            "cat":    TokenType.cat,
-            "sat":    TokenType.searchCat,
-            "wd":     TokenType.currentDirectory,
-            "ifc":    TokenType.netInterface,
-            "net":    TokenType.netStat,
-            "nsl":    TokenType.lookup,
-            "upt":    TokenType.uptime,
-            "bro":    TokenType.broadcast,
-            "mes":    TokenType.canUseWrite,
-            "rn":     TokenType.rename,
-            "cpu":    TokenType.cpuProcesses,
-            "wu":     TokenType.whoUptime,
-            "hd":     TokenType.head,
-            "tl":     TokenType.tail,
-            "srt":    TokenType.sort,
-            "cc":     TokenType.charCount,
-            "wc":     TokenType.wordCount,
-            "df":     TokenType.diskSpace,
-            "du":     TokenType.diskUsage,
-            "lct":    TokenType.locate
+            
         ];
     }
 
@@ -129,11 +56,8 @@ class Scanner
             {
                 case '(': addToken(TokenType.leftParenthesis);  break;
                 case ')': addToken(TokenType.rightParenthesis); break;
-                case '{': addToken(TokenType.leftBrace);        break;
-                case '}': addToken(TokenType.rightBrace);       break;
                 case '[': addToken(TokenType.leftBracket);      break;
                 case ']': addToken(TokenType.rightBracket);     break;
-                case ';': addToken(TokenType.semiColon);        break;
                 case ',': addToken(TokenType.comma);            break;
 
                 case '+':
@@ -147,7 +71,8 @@ class Scanner
                 case '-':
 
                     if (match('='))      addToken(TokenType.minusAssign);
-                    else if (match('+')) addToken(TokenType.decrement);
+                    else if (match('-')) addToken(TokenType.decrement);
+                    else if (match('>')) addToken(TokenType.returnStatement);
                     else                 addToken(TokenType.minus);
 
                     break;
@@ -178,7 +103,6 @@ class Scanner
                 case '=':
 
                     if (match('='))      addToken(TokenType.equal);
-                    else if(match('>'))  addToken(TokenType.returnStatement);
                     else                 addToken(TokenType.assign);
 
                     break;
@@ -206,44 +130,24 @@ class Scanner
 
                 case '>':
 
-                    if (match('=')) addToken(TokenType.lowerThanEqual);
-
-                    else if (matchPair('>', '='))
-                        addToken(TokenType.assignRightShift);
-
+                    if (match('='))      addToken(TokenType.lowerThanEqual);
                     else if (match('>')) addToken(TokenType.rightShift);
-                    else addToken(TokenType.lowerThan);
+                    else                 addToken(TokenType.lowerThan);
 
                     break;
 
                 case '<':
 
-                    if (match('=')) addToken(TokenType.greaterThanEqual);
-
-                    else if (matchPair('<', '='))
-                        addToken(TokenType.assignLeftShift);
-
+                    if (match('='))      addToken(TokenType.greaterThanEqual);
                     else if (match('<')) addToken(TokenType.leftShift);
-                    else if (match('>')) addToken(TokenType.streamfrom);
-                    else addToken(TokenType.greaterThan);
+                    else                 addToken(TokenType.greaterThan);
 
                     break;
 
                 case '?':
 
-                    if (match('=')) addToken(TokenType.castEqual);
-                    else if (match('!')) addToken(TokenType.castType);
-                    else if (match('+')) addToken(TokenType.castPlus);
-                    else if (match('-')) addToken(TokenType.castMinus);
-                    else if (match('/')) addToken(TokenType.castDivide);
-                    else if (match('*')) addToken(TokenType.castMultiply);
-                    else if (match('|')) addToken(TokenType.castOr);
-                    else if (match('&')) addToken(TokenType.castAnd);
-                    else if (match('%')) addToken(TokenType.castModulo);
-                    else if (match('~')) addToken(TokenType.castConcatenate);
-                    else if (matchPair('<', '<')) addToken(TokenType.castLeftShift);
-                    else if (matchPair('>', '>')) addToken(TokenType.castRightShift);
-                    else addToken(TokenType.ternary);
+                    if (match('='))      addToken(TokenType.castAssign);
+                    else                 addToken(TokenType.castOp);
 
                     break;
 
@@ -304,13 +208,22 @@ class Scanner
                     advance;
 
                     auto value = source[start + 1..current - 1];
-
-                    value = value.replace("\\0", "\0");
-                    value = value.replace("\\n", "\n");
-                    value = value.replace("\\r", "\r");
-                    value = value.replace("\\t", "\t");
-                    value = value.replace("\\'", "\'");
-                    value = value.replace("\\\\", "\\");
+                    
+                    // temporary to prevent the algorithm to confuse 
+                    // **n into *n for example
+                    value = value.replace("**", "\x01");
+                    
+                    value = value.replace("*0", "\0");
+                    value = value.replace("*n", "\n");
+                    value = value.replace("*r", "\r");
+                    value = value.replace("*t", "\t");
+                    value = value.replace("*'", "\'");
+                    value = value.replace("*a", "\a");
+                    value = value.replace("*b", "\b");
+                    value = value.replace("*f", "\f");
+                    value = value.replace("*v", "\v");
+                    
+                    value = value.replace("\x01", "*");
 
                     if (value.length == 1)
                         addToken(TokenType.characterType, value[0].to!string);
@@ -333,9 +246,6 @@ class Scanner
                     // this is purposefully made so that . == 0
                     if (result.startsWith(".")) result = "0" ~ result;
                     if (result.endsWith(".")) result ~= "0";
-
-                    // numbers aren't immediately converted; that comes later
-                    // when we know their type.
 
                     auto dotCount = result.count(".");
 
@@ -374,7 +284,9 @@ class Scanner
                     break;
 
                 default:
-                    line.reportError("Unexpected character %x".format(source[current - 1]));
+                
+                    char err = source[current - 1];
+                    line.reportError("Unexpected character %x %c".format(err, err));
                     break;
             }
         }
