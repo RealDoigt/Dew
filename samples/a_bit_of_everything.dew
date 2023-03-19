@@ -46,7 +46,7 @@ do
             echo('You*'re getting older.')
         50,
             echo('You*'re officially old')
-        else
+        else,
             echo('You are either considering or enjoying retirement!')
     od
 od
