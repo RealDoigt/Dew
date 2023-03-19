@@ -226,7 +226,7 @@ class Scanner
 
                     while (peek != '\'' && !isAtEnd)
                     {
-                        if (matchPair("\\", "'")) continue;
+                        if (matchPair('*', '\'')) continue;
                         if (peek == '\n') ++line;
                         advance;
                     }
@@ -258,10 +258,10 @@ class Scanner
                     value = value.replace("\x01", "*");
 
                     if (value.length == 1)
-                        addToken(TokenType.characterType, value[0].to!string);
+                        addToken(TokenType.charLiteral, value[0].to!string);
 
                     else
-                        addToken(TokenType.stringType, value);
+                        addToken(TokenType.stringLiteral, value);
 
                     break;
 
@@ -282,13 +282,13 @@ class Scanner
                     auto dotCount = result.count(".");
 
                     if (dotCount == 1)
-                        addToken(TokenType.decimalNumber, result);
+                        addToken(TokenType.decimalLiteral, result);
 
                     else if (dotCount > 1)
                         line.reportError("Too many dots in decimal number: %s".format(result));
 
                     else
-                        addToken(TokenType.integerNumber, source[start..current]);
+                        addToken(TokenType.integerLiteral, source[start..current]);
 
                     break;
 
