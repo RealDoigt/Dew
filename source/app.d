@@ -1,4 +1,4 @@
-import token_type;
+import token_class;
 import std.stdio;
 import std.file;
 import scanner;
