@@ -1,0 +1,3 @@
+use std
+
+proc void main then echo('Hello, World!')
