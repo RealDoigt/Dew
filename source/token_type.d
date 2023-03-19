@@ -46,8 +46,10 @@ enum TokenType
 
     // literals
     identifier,
-    decimalNumber,
-    integerNumber,
+    decimalLiteral,
+    integerLiteral,
+    charLiteral,
+    stringLiteral,
     
     // keywords
     conditionIf,   // if
