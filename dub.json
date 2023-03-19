@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"doigt"
+	],
+	"copyright": "Copyright © 2023, doigt",
+	"description": "An Algol/Bash like programing language with an actually consistent syntax",
+	"license": "mit",
+	"name": "dew"
+}

@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dew
+dew.so
+dew.dylib
+dew.dll
+dew.a
+dew.lib
+dew-test-*
+*.exe
+*.o
+*.obj
+*.lst
