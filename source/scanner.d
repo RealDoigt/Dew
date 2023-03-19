@@ -63,7 +63,7 @@ class Scanner
         ];
     }
 
-    Token[] scanTokens()
+    auto scanTokens()
     {
         while (!isAtEnd)
         {
@@ -77,7 +77,7 @@ class Scanner
 
     private
     {
-        bool isAtEnd()
+        auto isAtEnd()
         {
             return current >= source.length;
         }
