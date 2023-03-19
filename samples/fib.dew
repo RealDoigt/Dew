@@ -1,6 +1,6 @@
 use std
 
-func int fib int n
+func int fib (int n)
 do
     if n < 2 then -> n
     -> fib(n - 1) + fib(n - 2)
