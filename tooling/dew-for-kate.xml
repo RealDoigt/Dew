@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language 
+    name="Dew" 
+    extensions="*.dew" 
+    version="0" 
+    section="Sources"
+    kateversion="22.12.1" 
+    casesensitive="false"
+    author="Doigt"
+    license="unlicense">
+    
+</language>
