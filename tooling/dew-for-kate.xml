@@ -5,7 +5,7 @@
     version="0" 
     section="Sources"
     kateversion="22.12.1" 
-    casesensitive="false"
+    casesensitive="1"
     author="Doigt"
     license="unlicense">
     
