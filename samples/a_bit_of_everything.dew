@@ -25,14 +25,22 @@ do
     elif age >= 65 then echo('*nYou are an elder.')
     else then echo('*nYou are an adult of working age.')
     
-    /* 
-        the when keyword is used to change the type of
-        comparison for or in a case. To use it, just
-        type an operator or a boolean function/procedure
-        with two params after the when. The when will select
-        the first match, so the order is important.
+    /*
+        There are two types of switch cases in Dew: the 'once' and the 'when'.
+        
+        A 'once' selects the first case it matches and only executes the 
+        code in that match. Since only the first match is selected, the order 
+        of the case is important to keep in mind while writing the code of a 
+        'once' switch case.
+        
+        A 'when' switch case will do the opposite; it will select and execute all 
+        the matches it finds.
+        
+        The 'is' keyword is used to change the type of comparison of a
+        once/when switch case. To use it, just type an operator or a boolean 
+        function/procedure with two params after the 'is'.
     */
-    case age when <
+    once age is <
     do
         12,
             echo('You*'re very young.')
