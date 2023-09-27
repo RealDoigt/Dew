@@ -2,7 +2,7 @@ module dew.tokens;
 
 class Idiot
 {
-  static private immutable
+  static immutable
   {
     auto keyWordMap =
     [
