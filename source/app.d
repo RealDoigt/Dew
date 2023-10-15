@@ -3,6 +3,16 @@ import std.file;
 import std.string;
 import std.array;
 
+auto translateBasic(string dewSourceCode)
+{
+    auto result = dewSource.split(" ");
+
+    foreach (ref token; result)
+    {
+        switch (token)
+    }
+}
+
 void main(string[] args)
 {
     string[string] dSourceFiles, dewSourceFiles;
@@ -18,6 +28,8 @@ void main(string[] args)
                 else "Unrecognised file type of %d. Use only D and Dew source files.".writefln(file);
             }
         }
+
+
     }
 
     else "usage: dew <file(s)>".writeln;
